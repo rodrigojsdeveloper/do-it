@@ -1,8 +1,16 @@
 import styled, { css } from "styled-components";
 
 interface IButtonStyled {
-  color: string;
-  size: string;
+  color: "primary" | "secondary" | "disable";
+  size:
+    | "signin"
+    | "modal"
+    | "newTask"
+    | "searchTask"
+    | "miniButton"
+    | "modalTwo"
+    | "newTaskPrimary"
+    | "notFound";
 }
 
 const Container = styled.button<IButtonStyled>`

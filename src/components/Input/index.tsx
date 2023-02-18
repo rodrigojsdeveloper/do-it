@@ -13,7 +13,6 @@ interface InputProps {
   required?: boolean | undefined;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value?: string | number | readonly string[];
-  disabled?: boolean;
   src: string;
   alt: string;
 }
@@ -30,7 +29,6 @@ const Input = ({
   required,
   onChange,
   value,
-  disabled,
   src,
   alt,
 }: InputProps) => {
@@ -50,7 +48,6 @@ const Input = ({
             placeholder={placeholder}
             required={required}
             onChange={onChange}
-            disabled={disabled}
           />
         </div>
 

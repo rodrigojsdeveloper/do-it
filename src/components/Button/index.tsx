@@ -2,8 +2,16 @@ import { Container } from "./style";
 
 interface IButton {
   children: React.ReactNode;
-  color: string;
-  size: string;
+  color: "primary" | "secondary" | "disable";
+  size:
+    | "signin"
+    | "modal"
+    | "newTask"
+    | "searchTask"
+    | "miniButton"
+    | "modalTwo"
+    | "newTaskPrimary"
+    | "notFound";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
   type: "button" | "submit" | "reset";

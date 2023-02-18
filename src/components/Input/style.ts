@@ -29,10 +29,17 @@ const Container = styled.div`
 
     & > div {
       width: 100%;
+      height: 60px;
 
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      border-radius: 4px;
+      border: 2px solid var(--color-white-two);
+      background-color: var(--color-white-two);
+
+      padding: 29px 17px;
 
       & > img {
         width: 16px;
@@ -63,6 +70,10 @@ const Container = styled.div`
 
       color: var(--color-placeholder);
     }
+  }
+
+  &:hover {
+    border-color: var(--color-secondary);
   }
 `;
 
