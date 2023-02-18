@@ -10,9 +10,23 @@ export default createGlobalStyle`
 		scroll-behavior: smooth;
 	}
   
-	:root {}
+	:root {
+		--color-primary: #8615DF;
+		--color-primary-two: #570E91;
+		--color-secondary: #38085C;
+		--color-secondary-two: #190429;
+		--color-title: #111111;
+		--color-text: #666665;
+		--color-placeholder: #9E9EA7;
+		--color-error: #DF1545;
+		--color-sucess: #25D970;
+		--color-base-default: #FFFFFF;
+	}
 
-	body {}
+	body {
+		background-color: var(--color-base-default);
+		color: var(--color-title);
+	}
 
 	button, a {
 		cursor: pointer;
