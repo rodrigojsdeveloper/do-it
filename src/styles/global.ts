@@ -24,7 +24,7 @@ export default createGlobalStyle`
 		--color-base-default: #FFFFFF;
 		--color-grey: #EEEEEE;
 		--color-grey-two: #D4D4D4;
-		--color-grey-three: #9E9EA7;
+		--transparent: transparent;
 	}
 
 	body {

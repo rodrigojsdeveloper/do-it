@@ -54,7 +54,7 @@ const Container = styled.button<IButtonStyled>`
         return css`
           background-color: var(--color-grey);
           border-color: var(--color-grey);
-          color: var(--color-grey-three);
+          color: var(--color-placeholder);
 
           :hover {
             background-color: var(--color-grey-two);
