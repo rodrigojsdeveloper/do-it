@@ -33,7 +33,7 @@ const Input = ({
   alt,
 }: InputProps) => {
   return (
-    <Container>
+    <Container isErrored={!!error}>
       <label>{label}</label>
 
       <div>

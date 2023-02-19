@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const Container = styled.div`
+interface InputPropsStyled {
+  isErroded: boolean;
+}
+
+const Container = styled.div<InputPropsStyled>`
   width: 100%;
   max-width: 450px;
   height: 116px;
@@ -41,6 +45,16 @@ const Container = styled.div`
 
       padding: 29px 17px;
 
+      &:hover {
+        border-color: var(--color-secondary);
+      }
+
+      ${({ isErroded }) =>
+        isErroded &&
+        css`
+          border-color: var(--color-error);
+        `}
+
       & > img {
         width: 16px;
         height: 20px;
@@ -69,11 +83,13 @@ const Container = styled.div`
       line-height: 18px;
 
       color: var(--color-placeholder);
-    }
-  }
 
-  &:hover {
-    border-color: var(--color-secondary);
+      ${({ isErroded }) =>
+        isErroded &&
+        css`
+          color: var(--color-error);
+        `}
+    }
   }
 `;
 

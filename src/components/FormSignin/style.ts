@@ -16,6 +16,9 @@ const Container = styled.form`
   border: 5px solid var(--color-white);
   background-color: var(--color-base-default);
 
+  margin-top: 69px;
+  margin-left: -260px;
+
   & > h2 {
     font-weight: 700;
     font-size: 24px;
@@ -33,6 +36,7 @@ const Container = styled.form`
 
     .divButtons {
       width: 100%;
+      max-width: 450px;
       height: 180px;
 
       display: flex;
@@ -48,6 +52,16 @@ const Container = styled.form`
         color: var(--color-text);
       }
     }
+  }
+
+  @media (max-width: 1600px) {
+    margin: 0;
+    margin: -50px;
+    margin-bottom: 47px;
+
+    border-width: 2px;
+
+    padding: 45px 15px;
   }
 `;
 
