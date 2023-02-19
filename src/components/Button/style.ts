@@ -4,6 +4,8 @@ interface IButtonStyled {
   color: "primary" | "secondary" | "disable";
   size:
     | "signin"
+    | "back"
+    | "backMobile"
     | "modal"
     | "newTask"
     | "searchTask"
@@ -83,6 +85,18 @@ const Container = styled.button<IButtonStyled>`
           height: 60px;
           max-width: 450px;
         `;
+
+      case "back":
+        return css`
+          height: 68.37px;
+          max-width: 84px;
+        `
+
+      case "backMobile":
+        return css`
+          height: 35.81px;
+          max-width: 44px;
+        `
 
       case "modal":
         return css`

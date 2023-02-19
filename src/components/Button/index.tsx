@@ -5,6 +5,8 @@ interface IButton {
   color: "primary" | "secondary" | "disable";
   size:
     | "signin"
+    | "back"
+    | "backMobile"
     | "modal"
     | "newTask"
     | "searchTask"

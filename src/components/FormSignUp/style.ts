@@ -17,7 +17,7 @@ const Container = styled.form`
   background-color: var(--color-base-default);
 
   margin-top: 60px;
-  margin-right: -255px;
+  margin-left: -255px;
 
   & > h2 {
     font-weight: 700;
@@ -38,11 +38,17 @@ const Container = styled.form`
 
   @media (max-width: 1600px) {
     margin: 0;
-    margin-top: -50px;
+    margin-top: 35px;
     margin-bottom: 47px;
 
     border-width: 2px;
 
+    & > h2 {
+      padding-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 500px) {
     padding: 23.5px 14.83px;
   }
 `;

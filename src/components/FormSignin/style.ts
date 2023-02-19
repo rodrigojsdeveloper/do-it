@@ -61,6 +61,12 @@ const Container = styled.form`
 
     border-width: 2px;
 
+    & > h2 {
+      padding-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 500px) {
     padding: 50px 16px;
   }
 `;

@@ -1,6 +1,6 @@
-import logo from "../../assets/Group 75 (2).svg";
-import logoMobile from "../../assets/Group 75 (3).svg";
 import { FormSignIn } from "../../components/FormSignin";
+import logoMobile from "../../assets/Group 75 (3).svg";
+import logo from "../../assets/Group 75 (2).svg";
 import { Container } from "./style";
 
 const SignIn = () => {
@@ -11,7 +11,7 @@ const SignIn = () => {
       <div>
         <div>
           <div>
-            {window.screen.width >= 1440 ? (
+            {window.screen.width >= 1600 ? (
               <img src={logo} alt="Dot it" />
             ) : (
               <img src={logoMobile} alt="Dot it" />
