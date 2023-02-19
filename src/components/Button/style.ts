@@ -90,13 +90,13 @@ const Container = styled.button<IButtonStyled>`
         return css`
           height: 68.37px;
           max-width: 84px;
-        `
+        `;
 
       case "backMobile":
         return css`
           height: 35.81px;
           max-width: 44px;
-        `
+        `;
 
       case "modal":
         return css`

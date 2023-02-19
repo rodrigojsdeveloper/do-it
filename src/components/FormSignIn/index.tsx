@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import password from "../../assets/ (4).svg";
 import message from "../../assets/ (2).svg";
 import { useForm } from "react-hook-form";
@@ -6,6 +7,8 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 
 const FormSignIn = () => {
+  const navigate = useNavigate();
+
   const { register } = useForm();
 
   return (
@@ -43,7 +46,12 @@ const FormSignIn = () => {
             Entrar
           </Button>
           <p>Ainda não possui uma conta?</p>
-          <Button color="disable" size="signin" type="button">
+          <Button
+            color="disable"
+            size="signin"
+            type="button"
+            onClick={() => navigate("/signup")}
+          >
             Cadastrar
           </Button>
         </div>

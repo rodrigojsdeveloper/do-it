@@ -1,11 +1,9 @@
-import { FormSignIn } from "../../components/FormSignin";
+import { FormSignIn } from "../../components/FormSignIn";
 import logoMobile from "../../assets/Group 75 (3).svg";
 import logo from "../../assets/Group 75 (2).svg";
 import { Container } from "./style";
 
 const SignIn = () => {
-  console.log();
-
   return (
     <Container>
       <div>

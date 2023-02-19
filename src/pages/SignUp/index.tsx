@@ -3,15 +3,23 @@ import logoMobile from "../../assets/Group 75 (3).svg";
 import simplicity from "../../assets/Group 50.svg";
 import logo from "../../assets/Group 75 (2).svg";
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 import agility from "../../assets/Vector.svg";
 import arrow from "../../assets/.svg";
 import { Container } from "./style";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <section>
-        <Button color="secondary" size="back" type="button">
+        <Button
+          color="secondary"
+          size="back"
+          type="button"
+          onClick={() => navigate("/")}
+        >
           <img src={arrow} alt="arrow" />
         </Button>
       </section>
@@ -25,7 +33,12 @@ const SignUp = () => {
             ) : (
               <article>
                 <img src={logoMobile} alt="Dot it" />
-                <Button color="secondary" size="backMobile" type="button">
+                <Button
+                  color="secondary"
+                  size="backMobile"
+                  type="button"
+                  onClick={() => navigate("/")}
+                >
                   <img src={arrow} alt="arrow" />
                 </Button>
               </article>
