@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IButtonStyled {
-  color: "primary" | "secondary" | "disable";
+  color: "primary" | "secondary" | "disable" | "mini";
   size:
     | "signin"
     | "back"
@@ -43,7 +43,7 @@ const Container = styled.button<IButtonStyled>`
           background-color: var(--color-secondary);
           border-color: var(--color-secondary);
 
-          :hover {
+          &:hover {
             background-color: var(--color-secondary-two);
             border-color: var(--color-secondary-two);
           }
@@ -54,7 +54,7 @@ const Container = styled.button<IButtonStyled>`
           background-color: var(--color-primary);
           border-color: var(--color-primary);
 
-          :hover {
+          &:hover {
             background-color: var(--color-primary-two);
             border-color: var(--color-primary-two);
           }
@@ -66,10 +66,21 @@ const Container = styled.button<IButtonStyled>`
           border-color: var(--color-grey);
           color: var(--color-placeholder);
 
-          :hover {
+          &:hover {
             background-color: var(--color-grey-two);
             border-color: var(--color-grey-two);
             color: var(--color-text);
+          }
+        `;
+
+      case "mini":
+        return css`
+          background-color: var(--transparent);
+          border: 1px solid var(--color-placeholder);
+
+          &:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
           }
         `;
 

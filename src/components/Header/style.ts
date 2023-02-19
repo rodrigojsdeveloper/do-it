@@ -18,7 +18,7 @@ const Container = styled.header`
     cursor: pointer;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 1024px) {
     padding: 12px 17px;
   }
 `;

@@ -2,7 +2,7 @@ import { Container } from "./style";
 
 interface IButton {
   children: React.ReactNode;
-  color: "primary" | "secondary" | "disable";
+  color: "primary" | "secondary" | "disable" | "mini";
   size:
     | "signin"
     | "back"

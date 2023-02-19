@@ -27,6 +27,8 @@ export default createGlobalStyle`
 		--transparent: transparent;
 		--color-white: #F5F5F5;
 		--color-white-two: #F6F6F7;
+		--color-white-three: #F2F2F2;
+		--shadow: rgba(0, 0, 0, 0.25);
 	}
 
 	body {
