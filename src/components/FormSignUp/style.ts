@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.form`
   width: 100%;
   max-width: 510px;
-  height: 585px;
+  height: 736px;
 
   display: flex;
   flex-direction: column;
@@ -16,8 +16,8 @@ const Container = styled.form`
   border: 5px solid var(--color-white);
   background-color: var(--color-base-default);
 
-  margin-top: 69px;
-  margin-left: -260px;
+  margin-top: 60px;
+  margin-right: -255px;
 
   & > h2 {
     font-weight: 700;
@@ -27,31 +27,13 @@ const Container = styled.form`
 
   & > div {
     width: 100%;
-    height: 442px;
+    max-width: 450px;
+    height: 593px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-
-    .divButtons {
-      width: 100%;
-      max-width: 450px;
-      height: 180px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      & > p {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 24px;
-
-        color: var(--color-text);
-      }
-    }
   }
 
   @media (max-width: 1600px) {
@@ -61,7 +43,7 @@ const Container = styled.form`
 
     border-width: 2px;
 
-    padding: 50px 16px;
+    padding: 23.5px 14.83px;
   }
 `;
 

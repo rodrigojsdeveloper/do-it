@@ -44,6 +44,7 @@ const Container = styled.div<InputPropsStyled>`
       background-color: var(--color-white-two);
 
       padding: 29px 17px;
+      transition: 0.5s;
 
       &:hover {
         border-color: var(--color-secondary);
