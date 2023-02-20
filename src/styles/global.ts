@@ -16,10 +16,11 @@ export default createGlobalStyle`
 		--color-secondary: #38085C;
 		--color-secondary-two: #190429;
 		--color-secondary-three: #4C365C;
-		--color-title: #111111;
+		--color-title: #0E0E0F;
 		--color-text: #666665;
 		--color-placeholder: #9E9EA7;
 		--color-error: #DF1545;
+		--color-error-two: #BA0933;
 		--color-sucess: #25D970;
 		--color-base-default: #FFFFFF;
 		--color-grey: #EEEEEE;
@@ -29,6 +30,7 @@ export default createGlobalStyle`
 		--color-white-two: #F6F6F7;
 		--color-white-three: #F2F2F2;
 		--shadow: rgba(0, 0, 0, 0.25);
+		--shadow-two: rgba(17, 17, 17, 0.5);
 	}
 
 	body {

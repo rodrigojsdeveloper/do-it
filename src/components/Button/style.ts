@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IButtonStyled {
-  color: "primary" | "secondary" | "disable" | "mini";
+  color: "primary" | "secondary" | "disable" | "mini" | "miniModal";
   size:
     | "signin"
     | "back"
@@ -81,6 +81,17 @@ const Container = styled.button<IButtonStyled>`
           &:hover {
             background-color: var(--color-secondary);
             border-color: var(--color-secondary);
+          }
+        `;
+
+      case "miniModal":
+        return css`
+          background-color: var(--color-error);
+          border: 1px solid var(--color-error);
+
+          &:hover {
+            background-color: var(--color-error-two);
+            border-color: var(--color-error-two);
           }
         `;
 
