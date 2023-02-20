@@ -15,13 +15,8 @@ const Container = styled.div`
   padding: 86px 80px;
   background: var(--shadow-two);
 
-  @media (max-width: 768px) {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
-  @media (max-width: 375px) {
-    padding-right: 20px;
-    padding-left: 20px;
+  @media (max-width: 1600px) {
+    padding: 48px 12px 48px 16px;
   }
 `;
 
