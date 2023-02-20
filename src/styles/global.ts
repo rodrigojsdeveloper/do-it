@@ -30,8 +30,10 @@ export default createGlobalStyle`
 		--color-white: #F5F5F5;
 		--color-white-two: #F6F6F7;
 		--color-white-three: #F2F2F2;
+		--color-white-four: #E2E2E2;
 		--shadow: rgba(0, 0, 0, 0.25);
 		--shadow-two: rgba(17, 17, 17, 0.5);
+		--shadow-three: rgba(255, 255, 255, 0);
 	}
 
 	body {
@@ -45,9 +47,5 @@ export default createGlobalStyle`
 
 	a {
 		text-decoration: none;
-	}
-
-	&::-webkit-scrollbar {
-		display: none;
 	}
 `;
