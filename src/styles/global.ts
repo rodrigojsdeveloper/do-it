@@ -31,6 +31,7 @@ export default createGlobalStyle`
 		--color-white-three: #F2F2F2;
 		--shadow: rgba(0, 0, 0, 0.25);
 		--shadow-two: rgba(17, 17, 17, 0.5);
+		--color-grey: #BDBDBD;
 	}
 
 	body {
