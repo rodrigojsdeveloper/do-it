@@ -14,7 +14,7 @@ const Container = styled.div`
 
   border-radius: 4px;
   background-color: var(--transparent);
-  border: 2px dashed var(--color-grey);
+  border: 2px dashed var(--color-grey-three);
 
   & > div {
     width: 100%;

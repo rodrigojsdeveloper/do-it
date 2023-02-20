@@ -25,13 +25,13 @@ export default createGlobalStyle`
 		--color-base-default: #FFFFFF;
 		--color-grey: #EEEEEE;
 		--color-grey-two: #D4D4D4;
+		--color-grey-three: #BDBDBD;
 		--transparent: transparent;
 		--color-white: #F5F5F5;
 		--color-white-two: #F6F6F7;
 		--color-white-three: #F2F2F2;
 		--shadow: rgba(0, 0, 0, 0.25);
 		--shadow-two: rgba(17, 17, 17, 0.5);
-		--color-grey: #BDBDBD;
 	}
 
 	body {

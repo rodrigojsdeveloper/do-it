@@ -11,7 +11,7 @@ const Container = styled.header`
 
   padding: 12px 60px;
 
-  background-color: var(--transparent);
+  background-color: var(--color-base-default);
   border-bottom: 2px solid var(--color-white);
 
   & > img:nth-child(2) {
