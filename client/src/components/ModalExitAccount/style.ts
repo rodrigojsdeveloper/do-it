@@ -18,7 +18,7 @@ const Container = styled.div`
   top: 0;
   right: 0;
 
-  margin-top: 61px;
+  margin-top: -23px;
   margin-right: 60px;
 
   & > div:nth-child(1) {

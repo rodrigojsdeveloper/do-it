@@ -3,9 +3,13 @@ import done from "../../assets/.svg";
 import { Container } from "./style";
 import { Button } from "../Button";
 
-const Task = () => {
+interface ITask {
+  setOpenModalViewTask: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Task = ({ setOpenModalViewTask }: ITask) => {
   return (
-    <Container>
+    <Container onClick={() => setOpenModalViewTask(true)}>
       <div>
         <div>
           <h2>Studying database-driven concepts</h2>

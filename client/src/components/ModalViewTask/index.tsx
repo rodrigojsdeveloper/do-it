@@ -5,7 +5,11 @@ import trash from "../../assets/.svg";
 import done from "../../assets/.svg";
 import block from "../../assets/block.svg";
 
-const ModalViewTask = () => {
+interface IModalViewTask {
+  setCloseModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ModalViewTask = ({ setCloseModal }: IModalViewTask) => {
   return (
     <Container>
       <header>
@@ -25,7 +29,7 @@ const ModalViewTask = () => {
             <img src={done} alt="feito" />
           </Button>
           <Button color="miniModal" size="miniButton" type="button">
-            <img src={x} alt="x" />
+            <img src={x} alt="x" onClick={() => setCloseModal(false)} />
           </Button>
         </div>
       </header>
