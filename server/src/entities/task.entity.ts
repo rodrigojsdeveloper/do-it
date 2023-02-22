@@ -5,22 +5,19 @@ import {
   CreateDateColumn,
 } from "typeorm";
 
-@Entity("users")
-class User {
+@Entity("tasks")
+class Task {
   @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
-  email: string;
-
-  @Column()
-  password: string;
+  description: string;
 
   @CreateDateColumn()
   created_at: Date;
 }
 
-export { User };
+export { Task };

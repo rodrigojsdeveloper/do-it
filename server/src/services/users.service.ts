@@ -6,13 +6,10 @@ import { hash } from "bcrypt";
 class UsersServices {
   public async create(user: IUser): Promise<User> {
     const hashedPassword = await hash(user.password, 10);
-
-    const newUser = new User();
-    newUser.name = user.name;
-    newUser.email = user.email;
-    newUser.password = hashedPassword;
-
-    userRepository.create(newUser);
+    const newUser = userRepository.create({
+      ...user,
+      password: hashedPassword,
+    });
     await userRepository.save(newUser);
 
     Reflect.deleteProperty(newUser, "password");
