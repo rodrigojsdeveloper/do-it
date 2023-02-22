@@ -10,6 +10,14 @@ class TasksControllers {
 
     return res.status(201).json(newTask);
   }
+
+  public async delete(req: Request, res: Response) {
+    const task_id: string = req.params.id;
+
+    await new TasksServices().delete(task_id);
+
+    return res.status(204).json();
+  }
 }
 
 export { TasksControllers };
