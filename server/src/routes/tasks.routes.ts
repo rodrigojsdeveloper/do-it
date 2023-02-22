@@ -6,7 +6,7 @@ import { tokenMiddleware } from "../middlewares/token.middleware";
 const routes = Router();
 
 const tasksRoutes = () => {
-  routes.post("/", tokenMiddleware, new TasksControllers().create);
+  routes.post("", tokenMiddleware, new TasksControllers().create);
 
   routes.delete("/:id", tokenMiddleware, new TasksControllers().delete);
 
