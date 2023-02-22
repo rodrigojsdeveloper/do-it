@@ -1,9 +1,15 @@
+import { handleErrorMiddleware } from "./middlewares/handleError.middleware";
+import { appRoutes } from "./routes";
 import express from "express";
+import "express-async-errors";
+import "dotenv/config";
 
 const app = express();
 
-app.get("/users", (request, response) => {
-  return response.send("Hello World!");
-});
+app.use(express.json());
 
-app.listen(3000, () => console.log("Server running!"));
+appRoutes(app);
+
+app.use(handleErrorMiddleware);
+
+export { app };
