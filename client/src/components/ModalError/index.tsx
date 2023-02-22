@@ -3,7 +3,11 @@ import { Container } from "./style";
 import { Button } from "../Button";
 import x from "../../assets/X.svg";
 
-const ModalError = () => {
+interface IModalError {
+  setOpenModalError: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ModalError = ({ setOpenModalError }: IModalError) => {
   return (
     <Container>
       <header>
@@ -15,7 +19,12 @@ const ModalError = () => {
           <h2>Yeess..</h2>
         </div>
 
-        <Button color="miniModal" size="miniButton" type="button">
+        <Button
+          color="miniModal"
+          size="miniButton"
+          type="button"
+          onClick={() => setOpenModalError(false)}
+        >
           <img src={x} alt="x" />
         </Button>
       </header>
@@ -23,7 +32,12 @@ const ModalError = () => {
       <div>
         <h3>Ocorreu algum erro!</h3>
 
-        <Button color="miniModal" size="modal" type="button">
+        <Button
+          color="miniModal"
+          size="modal"
+          type="button"
+          onClick={() => setOpenModalError(false)}
+        >
           Tentar novamente
         </Button>
 

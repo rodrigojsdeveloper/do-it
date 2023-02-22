@@ -4,12 +4,35 @@ import x from "../../assets/X.svg";
 import trash from "../../assets/.svg";
 import done from "../../assets/.svg";
 import block from "../../assets/block.svg";
+import { useEffect } from "react";
+import { api } from "../../services/api";
+import { ITask } from "../../interfaces";
 
 interface IModalViewTask {
   setCloseModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setTasks: React.Dispatch<React.SetStateAction<Array<ITask>>>;
+  tasks: Array<ITask>;
 }
 
-const ModalViewTask = ({ setCloseModal }: IModalViewTask) => {
+const ModalViewTask = ({ setCloseModal, tasks, setTasks }: IModalViewTask) => {
+  const token = sessionStorage.getItem("Do it: token");
+
+  const deletedTask = () => {
+    useEffect(() => {
+      api
+        .get("users/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(() => {
+          const newList = tasks.filter((taskk: ITask) => taskk.id);
+
+          setTasks(newList);
+        })
+        .catch((error) => console.error(error));
+    });
+  };
   return (
     <Container>
       <header>
@@ -22,14 +45,29 @@ const ModalViewTask = ({ setCloseModal }: IModalViewTask) => {
         </div>
 
         <div>
-          <Button color="mini" size="miniButton" type="button">
+          <Button
+            color="mini"
+            size="miniButton"
+            type="button"
+            onClick={() => deletedTask()}
+          >
             <img src={trash} alt="lixeira" />
           </Button>
-          <Button color="mini" size="miniButton" type="button">
+          <Button
+            color="mini"
+            size="miniButton"
+            type="button"
+            onClick={() => deletedTask()}
+          >
             <img src={done} alt="feito" />
           </Button>
-          <Button color="miniModal" size="miniButton" type="button">
-            <img src={x} alt="x" onClick={() => setCloseModal(false)} />
+          <Button
+            color="miniModal"
+            size="miniButton"
+            type="button"
+            onClick={() => setCloseModal(false)}
+          >
+            <img src={x} alt="x" />
           </Button>
         </div>
       </header>

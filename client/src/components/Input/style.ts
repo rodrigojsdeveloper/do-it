@@ -39,42 +39,43 @@ const Container = styled.div<InputPropsStyled>`
       flex-direction: row;
       align-items: center;
 
-      border-radius: 4px;
-      border: 2px solid var(--color-white-two);
-      background-color: var(--color-white-two);
-
-      padding: 29px 17px;
-      transition: 0.5s;
-
-      &:hover {
-        border-color: var(--color-secondary);
-      }
-
-      ${({ isErroded }) =>
-        isErroded &&
-        css`
-          border-color: var(--color-error);
-        `}
-
       & > img {
         width: 16px;
         height: 20px;
 
-        margin-right: 10px;
+        margin-left: 17px;
+        position: fixed;
+        z-index: 2000;
       }
 
       & > input {
-        height: 20px;
+        width: 100%;
+        height: 60px;
         border: none;
 
         font-weight: 400;
         font-size: 18px;
 
-        background-color: var(--transparent);
+        padding: 17px 17px 17px 39px;
+        transition: 0.5s;
+
+        border-radius: 4px;
+        border: 2px solid var(--color-white-two);
+        background-color: var(--color-white-two);
 
         &::placeholder {
           color: var(--color-placeholder);
         }
+
+        &:focus {
+          border-color: var(--color-secondary);
+        }
+
+        ${({ isErroded }) =>
+          isErroded &&
+          css`
+            border-color: var(--color-error);
+          `}
       }
     }
 

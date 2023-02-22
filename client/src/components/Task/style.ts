@@ -45,6 +45,12 @@ const Container = styled.div`
         font-size: 20px;
         line-height: 24px;
 
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         @media (max-width: 425px) {
           font-size: 14px;
         }
@@ -54,6 +60,12 @@ const Container = styled.div`
         font-weight: 400;
         font-size: 14px;
         line-height: 24px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         color: var(--color-text);
 

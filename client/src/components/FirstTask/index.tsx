@@ -1,8 +1,12 @@
-import task from "../../assets/.svg";
+import task from "../../assets/task.svg";
 import { Container } from "./style";
 import { Button } from "../Button";
 
-const FirstTask = () => {
+interface IFirstTask {
+  setOpenModalCreateTask: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FirstTask = ({ setOpenModalCreateTask }: IFirstTask) => {
   return (
     <Container>
       <div>
@@ -16,7 +20,12 @@ const FirstTask = () => {
             <b>suas atividades</b>
           </p>
 
-          <Button color="primary" size="newTaskPrimary" type="button">
+          <Button
+            color="primary"
+            size="newTaskPrimary"
+            type="button"
+            onClick={() => setOpenModalCreateTask(true)}
+          >
             Criar minha primeira tarefa
           </Button>
         </div>

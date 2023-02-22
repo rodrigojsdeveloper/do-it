@@ -77,6 +77,9 @@ const Container = styled.div`
         height: 127px;
         & > div {
           height: 100px;
+          & > input {
+            height: 100px;
+          }
         }
       }
     }

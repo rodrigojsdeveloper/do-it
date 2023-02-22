@@ -1,12 +1,55 @@
 import { useForm } from "react-hook-form";
-import task from "../../assets/.svg";
+import task from "../../assets/block.svg";
 import { Container } from "./style";
 import { Button } from "../Button";
 import x from "../../assets/X.svg";
 import { Input } from "../Input";
+import { ITask } from "../../interfaces";
+import { useState } from "react";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { api } from "../../services/api";
 
-const ModalCreateTask = () => {
-  const { register } = useForm();
+interface IModalCreateTask {
+  handleListTasks: (task: ITask) => void;
+  setOpenModalCreateTask: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ModalCreateTask = ({
+  handleListTasks,
+  setOpenModalCreateTask,
+}: IModalCreateTask) => {
+  const [load, setLoad] = useState<boolean>(false);
+
+  const schema = yup.object().shape({
+    title: yup.string().required("Nome obrigatório"),
+    description: yup
+      .string()
+      .required("Email obrigatório")
+      .max(100, "Máximo 100 caracteres"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmitFunc = (data: object) => {
+    setLoad(true);
+
+    api
+      .post("tasks", data)
+      .then((res) => {
+        handleListTasks(res.data);
+
+        setOpenModalCreateTask(true);
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setLoad(false));
+  };
 
   return (
     <Container>
@@ -19,12 +62,17 @@ const ModalCreateTask = () => {
           <h2>Adicionar</h2>
         </div>
 
-        <Button color="miniModal" size="miniButton" type="button">
+        <Button
+          color="miniModal"
+          size="miniButton"
+          type="button"
+          onClick={() => setOpenModalCreateTask(false)}
+        >
           <img src={x} alt="x" />
         </Button>
       </header>
 
-      <form>
+      <form onSubmit={handleSubmit(onSubmitFunc)}>
         <Input
           label="Título"
           message="Ex: Estudar React - Chakra UI"
@@ -35,7 +83,7 @@ const ModalCreateTask = () => {
           type="text"
           autoComplete="off"
           placeholder="Digite seu título"
-          required={true}
+          error={errors.title?.message}
         />
         <Input
           label="Descrição"
@@ -47,11 +95,11 @@ const ModalCreateTask = () => {
           type="text"
           autoComplete="off"
           placeholder="Digite sua descrição"
-          required={true}
+          error={errors.description?.message}
         />
 
-        <Button color="primary" size="modalTwo" type="submit">
-          Adicionar Tarefa
+        <Button color="primary" size="modalTwo" type="submit" disabled={load}>
+          {load ? "Adicionando..." : "Adicionar Tarefa"}
         </Button>
       </form>
     </Container>

@@ -1,11 +1,15 @@
 import back from "../../assets/log-out.svg";
 import { Container } from "./style";
 
-const ModalExitAccount = () => {
+interface IModalExitAccount {
+  user: any;
+}
+
+const ModalExitAccount = ({ user }: IModalExitAccount) => {
   return (
     <Container>
       <div>
-        <h2>AnaBeatrizKenzie</h2>
+        <h2>{user.name}</h2>
       </div>
 
       <div>

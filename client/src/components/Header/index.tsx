@@ -2,18 +2,34 @@ import { ModalBackgroundHeader } from "../ModalBackgroundHeader";
 import menuMobile from "../../assets/Group 84 (1).svg";
 import { ModalExitAccount } from "../ModalExitAccount";
 import menu from "../../assets/Group 84.svg";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 import logo from "../../assets/Div.svg";
 import { Container } from "./style";
-import { useState } from "react";
 
 const Header = () => {
+  const token = sessionStorage.getItem("Do it: token");
+
+  const [user, setUser] = useState({});
+
   const [openModalExit, setOpenModalExit] = useState<boolean>(false);
+
+  useEffect(() => {
+    api
+      .get("users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => setUser(res.data))
+      .catch((error) => console.error(error));
+  });
 
   return (
     <>
       {openModalExit ? (
         <ModalBackgroundHeader>
-          <ModalExitAccount />
+          <ModalExitAccount user={user} />
         </ModalBackgroundHeader>
       ) : null}
       <Container>

@@ -24,7 +24,7 @@ const Input = ({
   name,
   register,
   autoComplete,
-  error,
+  error = null,
   placeholder,
   required,
   onChange,
@@ -33,7 +33,7 @@ const Input = ({
   alt,
 }: InputProps) => {
   return (
-    <Container isErrored={!!error}>
+    <Container isErroded={!!error}>
       <label>{label}</label>
 
       <div>
