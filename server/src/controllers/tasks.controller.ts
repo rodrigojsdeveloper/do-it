@@ -4,9 +4,11 @@ import { Request, Response } from "express";
 
 class TasksControllers {
   public async create(req: Request, res: Response) {
+    const email: string = req.email
+
     const data: ITask = req.body;
 
-    const newTask = await new TasksServices().create(data);
+    const newTask = await new TasksServices().create(data, email);
 
     return res.status(201).json(newTask);
   }

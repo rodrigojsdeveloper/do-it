@@ -10,7 +10,7 @@
     "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
     "type": "module",
     "build": "rm -rf ./dist && tsc",
-    "start": "node ./dist/app.js"
+    "start": "node ./dist/server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
