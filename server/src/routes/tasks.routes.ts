@@ -8,6 +8,8 @@ const routes = Router();
 const tasksRoutes = () => {
   routes.post("", tokenMiddleware, new TasksControllers().create);
 
+  routes.get("/:id", tokenMiddleware, new TasksControllers().specific);
+
   routes.delete("/:id", tokenMiddleware, new TasksControllers().delete);
 
   return routes;

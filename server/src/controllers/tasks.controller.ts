@@ -11,6 +11,14 @@ class TasksControllers {
     return res.status(201).json(newTask);
   }
 
+  public async specific(req: Request, res: Response) {
+    const task_id: string = req.params.id;
+
+    const specificTask = await new TasksServices().specific(task_id);
+
+    return res.json(specificTask);
+  }
+
   public async delete(req: Request, res: Response) {
     const task_id: string = req.params.id;
 
