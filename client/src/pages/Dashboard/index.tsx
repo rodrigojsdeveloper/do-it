@@ -1,15 +1,16 @@
 import { ModalBackground } from "../../components/ModalBackground";
-import { ModalViewTask } from "../../components/ModalViewTask";
+import { ModalCreateTask } from "../../components/ModalCreateTask";
+import { TaskNotFound } from "../../components/TaskNotFound";
+import { FirstTask } from "../../components/FirstTask";
+import React, { useEffect, useState } from "react";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
+import { ITask, IUser } from "../../interfaces";
 import search from "../../assets/search.svg";
 import { Task } from "../../components/Task";
-import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container } from "./style";
-import { FirstTask } from "../../components/FirstTask";
-import { ITask, IUser } from "../../interfaces";
-import { ModalCreateTask } from "../../components/ModalCreateTask";
+import { ListTasks } from "../../components/ListTasks";
 
 const Dashboard = () => {
   const token = sessionStorage.getItem("Do it: token");
@@ -21,7 +22,9 @@ const Dashboard = () => {
   const [openModalCreateTask, setOpenModalCreateTask] =
     useState<boolean>(false);
 
-  const [openModalViewTask, setOpenModalViewTask] = useState<boolean>(false);
+  const [valueInput, setValueInput] = useState<string>("");
+
+  const [filteredTasks, setFilteredTasks] = useState<Array<ITask>>([]);
 
   useEffect(() => {
     api
@@ -35,21 +38,12 @@ const Dashboard = () => {
         setTasks(res.data.tasks);
       })
       .catch((error) => console.error(error));
-  });
+  }, []);
 
   const handleListTasks = (task: ITask) => setTasks([...tasks, task]);
 
   return (
-    <>
-      {openModalViewTask ? (
-        <ModalBackground>
-          <ModalViewTask
-            setCloseModal={setOpenModalViewTask}
-            tasks={tasks}
-            setTasks={setTasks}
-          />
-        </ModalBackground>
-      ) : null}
+    <React.Fragment>
       {openModalCreateTask ? (
         <ModalBackground>
           <ModalCreateTask
@@ -63,8 +57,26 @@ const Dashboard = () => {
         <form>
           <div>
             <div>
-              <input placeholder="Pesquisar por tarefa" />
-              <Button color="primary" size="searchTask" type="submit">
+              <input
+                type="text"
+                placeholder="Pesquisar por tarefa"
+                value={valueInput}
+                onChange={(e) => setValueInput(e.target.value)}
+              />
+              <Button
+                color="primary"
+                size="searchTask"
+                type="submit"
+                onClick={() =>
+                  setFilteredTasks(
+                    tasks.filter((task) =>
+                      task.title
+                        .toLowerCase()
+                        .includes(valueInput.toLowerCase())
+                    )
+                  )
+                }
+              >
                 <img src={search} alt="search" />
               </Button>
             </div>
@@ -80,23 +92,21 @@ const Dashboard = () => {
         </form>
 
         <div>
-          {user.tasks ? (
-            <menu>
-              {user.tasks.map((task: any) => (
-                <Task
-                  task={task}
-                  setOpenModalViewTask={setOpenModalViewTask}
-                  tasks={tasks}
-                  setTasks={setTasks}
-                />
-              ))}
-            </menu>
+          {tasks.length > 0 ? (
+            <ListTasks
+              tasks={filteredTasks.length > 0 ? filteredTasks : tasks}
+              setTasks={setTasks}
+            />
           ) : (
-            <FirstTask setOpenModalCreateTask={setOpenModalCreateTask} />
+            <>
+              <TaskNotFound title={valueInput} />
+
+              <FirstTask setOpenModalCreateTask={setOpenModalCreateTask} />
+            </>
           )}
         </div>
       </Container>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -56,7 +56,7 @@ const Container = styled.div<InputPropsStyled>`
         font-weight: 400;
         font-size: 18px;
 
-        padding: 17px 17px 17px 39px;
+        padding: 17px 17px 17px 45px;
         transition: 0.5s;
 
         border-radius: 4px;

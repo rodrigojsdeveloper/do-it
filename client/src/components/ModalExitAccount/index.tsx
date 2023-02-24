@@ -13,7 +13,13 @@ const ModalExitAccount = ({ user }: IModalExitAccount) => {
       </div>
 
       <div>
-        <figure>
+        <figure
+          onClick={() => {
+            history.back();
+
+            sessionStorage.removeItem("Do it: token");
+          }}
+        >
           <img src={back} alt="sair" />
         </figure>
 

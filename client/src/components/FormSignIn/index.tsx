@@ -73,7 +73,7 @@ const FormSignIn = () => {
 
         <div className="divButtons">
           <Button color="primary" size="signin" type="submit" disabled={load}>
-            {load ? "Entrando" : "Entrar"}
+            {load ? "Entrando..." : "Entrar"}
           </Button>
           <p>Ainda não possui uma conta?</p>
           <Button

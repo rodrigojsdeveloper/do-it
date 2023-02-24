@@ -1,8 +1,13 @@
 import notFound from "../../assets/Group 102.svg";
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 import { Container } from "./style";
 
 const NotFound = () => {
+  const token = sessionStorage.getItem("Do it: token");
+
+  const navigate = useNavigate();
+
   return (
     <Container>
       <div>
@@ -16,7 +21,14 @@ const NotFound = () => {
             </p>
           </div>
 
-          <Button color="miniModal" size="notFound" type="button">
+          <Button
+            color="miniModal"
+            size="notFound"
+            type="button"
+            onClick={() => {
+              token ? navigate("/dashboard") : navigate("/");
+            }}
+          >
             Ir para minhas tarefas
           </Button>
         </div>

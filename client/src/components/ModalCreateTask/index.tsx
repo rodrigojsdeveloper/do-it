@@ -19,6 +19,8 @@ const ModalCreateTask = ({
   handleListTasks,
   setOpenModalCreateTask,
 }: IModalCreateTask) => {
+  const token = sessionStorage.getItem("Do it: token");
+
   const [load, setLoad] = useState<boolean>(false);
 
   const schema = yup.object().shape({
@@ -41,11 +43,15 @@ const ModalCreateTask = ({
     setLoad(true);
 
     api
-      .post("tasks", data)
+      .post("tasks", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         handleListTasks(res.data);
 
-        setOpenModalCreateTask(true);
+        setOpenModalCreateTask(false);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoad(false));

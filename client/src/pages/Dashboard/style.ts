@@ -85,19 +85,6 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: center;
 
-    & > menu {
-      width: 100%;
-      max-width: 1600px;
-
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      @media (max-width: 1560px) {
-        justify-content: space-around;
-      }
-    }
-
     @media (max-width: 1100px) {
       padding: 30px 14px;
     }

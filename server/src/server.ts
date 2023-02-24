@@ -2,11 +2,13 @@ import { AppDataSource } from "./data-source";
 import { app } from "./app";
 
 (async () => {
-  await AppDataSource.initialize().catch((err) => {
-    console.error("Error during Data Source initialization", err);
-  });
+  await AppDataSource.initialize()
+    .then(() => {
+      console.log("DataSource has been initialized");
+    })
+    .catch((error) =>
+      console.error("Error during DataSource initialization", error)
+    );
 
-  app.listen(process.env.PORT || 3000, () =>
-    console.log(`Running at http://localhost:${process.env.PORT}`)
-  );
+  app.listen(process.env.PORT || 3000, () => console.log("Server running"));
 })();
