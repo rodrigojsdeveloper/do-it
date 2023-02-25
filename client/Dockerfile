@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY package.json ./
 
-COPY ./ ./
-
 RUN yarn
+
+COPY ./ ./
 
 CMD ["yarn", "dev"]

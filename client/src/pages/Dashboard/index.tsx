@@ -26,6 +26,8 @@ const Dashboard = () => {
 
   const [filteredTasks, setFilteredTasks] = useState<Array<ITask>>([]);
 
+  const [isSearchPerformed, setIsSearchPerformed] = useState<boolean>(false);
+
   useEffect(() => {
     api
       .get("users/profile", {
@@ -42,6 +44,16 @@ const Dashboard = () => {
 
   const handleListTasks = (task: ITask) => setTasks([...tasks, task]);
 
+  const handleSearchTasks = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSearchPerformed(true);
+    setFilteredTasks(
+      tasks.filter(
+        (task) => task.title.toLowerCase() === valueInput.toLowerCase()
+      )
+    );
+  };
+
   return (
     <React.Fragment>
       {openModalCreateTask ? (
@@ -54,7 +66,7 @@ const Dashboard = () => {
       ) : null}
       <Container>
         <Header />
-        <form>
+        <form onSubmit={handleSearchTasks}>
           <div>
             <div>
               <input
@@ -63,20 +75,7 @@ const Dashboard = () => {
                 value={valueInput}
                 onChange={(e) => setValueInput(e.target.value)}
               />
-              <Button
-                color="primary"
-                size="searchTask"
-                type="submit"
-                onClick={() =>
-                  setFilteredTasks(
-                    tasks.filter((task) =>
-                      task.title
-                        .toLowerCase()
-                        .includes(valueInput.toLowerCase())
-                    )
-                  )
-                }
-              >
+              <Button color="primary" size="searchTask" type="submit">
                 <img src={search} alt="search" />
               </Button>
             </div>
@@ -92,17 +91,14 @@ const Dashboard = () => {
         </form>
 
         <div>
-          {tasks.length > 0 ? (
-            <ListTasks
-              tasks={filteredTasks.length > 0 ? filteredTasks : tasks}
-              setTasks={setTasks}
-            />
+          {filteredTasks.length > 0 ? (
+            <ListTasks tasks={filteredTasks} setTasks={setTasks} />
+          ) : tasks.length > 0 && !isSearchPerformed ? (
+            <ListTasks tasks={tasks} setTasks={setTasks} />
+          ) : isSearchPerformed ? (
+            <TaskNotFound title={valueInput} />
           ) : (
-            <>
-              <TaskNotFound title={valueInput} />
-
-              <FirstTask setOpenModalCreateTask={setOpenModalCreateTask} />
-            </>
+            <FirstTask setOpenModalCreateTask={setOpenModalCreateTask} />
           )}
         </div>
       </Container>
