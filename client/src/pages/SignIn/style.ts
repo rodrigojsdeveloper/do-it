@@ -12,7 +12,6 @@ const Container = styled.div`
     height: 100vh;
 
     padding: 20px;
-
     background-color: var(--color-secondary);
 
     & > div {
@@ -110,16 +109,8 @@ const Container = styled.div`
   }
 
   @media (max-width: 375px) {
-    & > div {
-      & > div {
-        & > div {
-          & > div {
-            & > h1 {
-              font-size: 30px;
-            }
-          }
-        }
-      }
+    h1 {
+      font-size: 30px;
     }
   }
 `;

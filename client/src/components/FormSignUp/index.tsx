@@ -21,10 +21,10 @@ const FormSignUp = ({ setOpenModalSucess, setOpenModalError }: IFormSignUp) => {
   const schema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     email: yup.string().required("Email obrigatório").email("Email inválido"),
-    password: yup.string().required("Senha obrigatório"),
+    password: yup.string().required("Senha obrigatória"),
     repeat_password: yup
       .string()
-      .required("Senha obrigatório")
+      .required("Repetir senha obrigatória")
       .oneOf([yup.ref("password")], "As senhas não conferem"),
   });
 
@@ -96,7 +96,7 @@ const FormSignUp = ({ setOpenModalSucess, setOpenModalError }: IFormSignUp) => {
         <Input
           src={password}
           alt="senha"
-          label="Senha"
+          label="Repetir senha"
           message="Repita a senha"
           name="repeat_password"
           type="password"
